@@ -112,7 +112,7 @@ WORKDIR /bymc-deps/z3-z3-4.7.1/build
 RUN eval $(opam env) && make -j 8
 # installation
 USER root 
-RUN make install 
+RUN eval $(opam env) &&  make install || make install
 USER bymc-user
 
 
